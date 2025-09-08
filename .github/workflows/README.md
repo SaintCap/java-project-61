@@ -5,3 +5,5 @@ After completing all the steps in the project, automatic tests will become avail
 The hexlet-check.yml file is responsible for running these tests - do not delete this file, edit it, or rename the repository.
 
 Example of how the game "Even" works: https://asciinema.org/a/UE8HrEpfDPfWTJzi85WzKwMVs
+
+Example of how the game "Calc" works: https://asciinema.org/a/u7ZRUfea3fTzIvibjAAYNkhnF

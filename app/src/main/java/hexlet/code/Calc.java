@@ -56,7 +56,7 @@ public class Calc implements GameInterface {
     }
 
     private char randomOperation(char[] operations, Random random) {
-        int randNum = random.nextInt(operations.length - 1);
+        int randNum = random.nextInt(operations.length);
         return operations[randNum];
     }
 

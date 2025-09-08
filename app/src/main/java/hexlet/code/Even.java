@@ -22,7 +22,7 @@ public class Even implements GameInterface {
         int correctAnswers = 0;
         while (correctAnswers < 3) {
             int randomNumber = random.nextInt(MAX_VALUE);
-            String even = (randomNumber % 2 == 0) ? "yes" : "no" ;
+            String even = isEven(randomNumber) ? "yes" : "no" ;
 
             System.out.printf("Question: %d%n", randomNumber);
             System.out.println("Your answer: ");
@@ -39,5 +39,9 @@ public class Even implements GameInterface {
         }
 
         System.out.printf("Congratulations, %s!%n", userName);
+    }
+
+    private boolean isEven(int num) {
+        return (num % 2 == 0);
     }
 }

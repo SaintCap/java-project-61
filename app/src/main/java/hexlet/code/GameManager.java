@@ -7,6 +7,7 @@ public class GameManager {
 
     GameManager() {
         addGame("Even", new Even());
+        addGame("Calc", new Calc());
     }
 
     public int numberOfGames() {

@@ -4,7 +4,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Even implements GameInterface {
-    public static final int MAX_VALUE = 100;
     public String userName;
 
     public void setUserName(String name) {
@@ -20,8 +19,8 @@ public class Even implements GameInterface {
         Scanner input = new Scanner(System.in);
 
         int correctAnswers = 0;
-        while (correctAnswers < 3) {
-            int randomNumber = random.nextInt(MAX_VALUE);
+        while (correctAnswers < MAX_CORRECT_ANSWERS) {
+            int randomNumber = random.nextInt(MAX_RANDOM_VALUE);
             String even = isEven(randomNumber) ? "yes" : "no" ;
 
             System.out.printf("Question: %d%n", randomNumber);

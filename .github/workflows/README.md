@@ -7,3 +7,5 @@ The hexlet-check.yml file is responsible for running these tests - do not delete
 Example of how the game "Even" works: https://asciinema.org/a/UE8HrEpfDPfWTJzi85WzKwMVs
 
 Example of how the game "Calc" works: https://asciinema.org/a/u7ZRUfea3fTzIvibjAAYNkhnF
+
+Example of how the game "GCD" works: https://asciinema.org/a/HAyEZu3aehqqMzv67YI1qwU56

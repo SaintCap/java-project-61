@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.games;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -15,27 +15,20 @@ public class Calc implements GameInterface {
     }
 
     public void play() {
+        int correctAnswers = 0;
         char[] operations = allOperations();
         Random random = new Random();
-        int correctAnswers = 0;
+        Scanner input = new Scanner(System.in);
 
         while (correctAnswers < MAX_CORRECT_ANSWERS) {
             char oper = randomOperation(operations, random);
             int num1 = random.nextInt(MAX_RANDOM_VALUE);
             int num2 = random.nextInt(MAX_RANDOM_VALUE);
-            int result = 0;
+            int result = resultOfOperation(oper, num1, num2);
 
             System.out.printf("Question: %d %c %d%n", num1, oper, num2);
             System.out.println("Your answer:");
-            if (oper == '+') {
-                result = num1 + num2;
-            } else if (oper == '-') {
-                result = num1 - num2;
-            } else if (oper == '*') {
-                result = num1 * num2;
-            }
 
-            Scanner input = new Scanner(System.in);
             int answer = input.nextInt();
 
             if (answer == result) {
@@ -60,4 +53,15 @@ public class Calc implements GameInterface {
         return operations[randNum];
     }
 
+    private int resultOfOperation(char oper, int num1, int num2) {
+        int result = 0;
+        if (oper == '+') {
+            result = num1 + num2;
+        } else if (oper == '-') {
+            result = num1 - num2;
+        } else if (oper == '*') {
+            result = num1 * num2;
+        }
+        return result;
+    }
 }

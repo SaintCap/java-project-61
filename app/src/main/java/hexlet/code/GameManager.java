@@ -1,13 +1,16 @@
 package hexlet.code;
 
+import hexlet.code.games.*;
+
 import java.util.*;
 
 public class GameManager {
-    private final Map<String, GameInterface> games = new HashMap<>();
+    private final Map<String, GameInterface> games = new LinkedHashMap<>();
 
     GameManager() {
         addGame("Even", new Even());
         addGame("Calc", new Calc());
+        addGame("GCD", new GCD());
     }
 
     public int numberOfGames() {

@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.games;
 
 public interface GameInterface {
     int MAX_CORRECT_ANSWERS = 3;

@@ -26,7 +26,7 @@ class Cli {
     public int userSelection() {
         Scanner input = new Scanner(System.in);
         int choice = input.nextInt();
-        if (choice < 0 || choice > (games.numberOfGames() + 2)) {
+        if (choice < 0 || choice > (games.numberOfGames() + startGamesNumber)) {
             System.out.println("There is no such option!");
             return userSelection();
         }

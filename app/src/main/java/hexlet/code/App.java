@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import hexlet.code.cli.Cli;
+
 public class App {
     public static void main(String[] args) {
         Cli cli = new Cli();

@@ -1,13 +1,15 @@
-package hexlet.code;
+package hexlet.code.cli;
+
+import hexlet.code.core.GameManager;
 
 import java.util.Scanner;
 
-class Cli {
+public class Cli {
     private final int startGamesNumber;
     private final GameManager games;
     private String userName;
 
-    Cli() {
+    public Cli() {
         games = new GameManager();
         userName = "Unknown";
         startGamesNumber = 2;

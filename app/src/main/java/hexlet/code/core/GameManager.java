@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.core;
 
 import hexlet.code.games.*;
 
@@ -7,7 +7,7 @@ import java.util.*;
 public class GameManager {
     private final Map<String, GameInterface> games = new LinkedHashMap<>();
 
-    GameManager() {
+    public GameManager() {
         addGame("Even", new Even());
         addGame("Calc", new Calc());
         addGame("GCD", new GCD());

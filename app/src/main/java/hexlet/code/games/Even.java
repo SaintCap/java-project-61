@@ -32,7 +32,7 @@ public class Even implements GameInterface {
                 System.out.println("Correct!");
                 correctAnswers++;
             } else {
-                System.out.printf("%s is wrong answer ;(. Correct answer was %s%n", answer, even);
+                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'%n", answer, even);
                 System.out.printf("Let's try again, %s!%n", userName);
             }
         }

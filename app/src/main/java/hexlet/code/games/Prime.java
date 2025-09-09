@@ -32,7 +32,7 @@ public class Prime implements GameInterface{
                 System.out.println("Correct!");
                 correctAnswers++;
             } else {
-                System.out.printf("%s is wrong answer ;(. Correct answer was %s%n", answer, prime);
+                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'%n", answer, prime);
                 System.out.printf("Let's try again, %s%n!", userName);
             }
         }

@@ -29,20 +29,28 @@ public final class Cli {
     }
 
     /**
-     * Method returns the user's selection.
+     * Returns the user's selection from available menu options.
+     * Validates the input to ensure it's within the valid range of choices.
+     *
+     * @return the validated user selection as integer
      */
     public int userSelection() {
         Scanner input = new Scanner(System.in);
-        int choice = input.nextInt();
-        if (choice < 0 || choice > (games.numberOfGames() + startGamesNumber)) {
-            System.out.println("There is no such option!");
-            return userSelection();
-        }
+        int choice;
+        do {
+            choice = input.nextInt();
+            if (choice < 0 || choice > (games.numberOfGames() + startGamesNumber)) {
+                System.out.println("There is no such option! Please try again.");
+            }
+        } while (choice < 0 || choice > (games.numberOfGames() + startGamesNumber));
+
         return choice;
     }
 
     /**
      * Method handles user selection.
+     *
+     * @param choice the user's input choice to validate
      */
     public void processUserSelection(int choice) {
         if (choice == 0) {

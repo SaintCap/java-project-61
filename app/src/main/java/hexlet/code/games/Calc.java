@@ -4,8 +4,8 @@ import hexlet.code.games.utils.GameUtils;
 
 import java.util.Random;
 
-public class Calc implements GameInterface {
-    public String userName;
+public final class Calc implements GameInterface {
+    private String userName;
 
     public void setUserName(String name) {
         userName = name;
@@ -51,15 +51,12 @@ public class Calc implements GameInterface {
         return operations[randNum];
     }
 
-    private int resultOfOperation(char oper, int num1, int num2) {
-        int result = 0;
-        if (oper == '+') {
-            result = num1 + num2;
-        } else if (oper == '-') {
-            result = num1 - num2;
-        } else if (oper == '*') {
-            result = num1 * num2;
-        }
-        return result;
+    private int resultOfOperation(char oper, int num1, int num2) throws IllegalArgumentException {
+        return switch (oper) {
+            case ('+') -> num1 + num2;
+            case ('-') -> num1 - num2;
+            case ('*') -> num1 * num2;
+            default -> throw new IllegalArgumentException("Недопустимая операция: " + oper);
+        };
     }
 }

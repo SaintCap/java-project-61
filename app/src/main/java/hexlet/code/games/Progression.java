@@ -4,9 +4,9 @@ import hexlet.code.games.utils.GameUtils;
 
 import java.util.Random;
 
-public class Progression implements GameInterface {
-    public static final int MAX_SIZE_PROGRESSION = 10;
-    public String userName;
+public final class Progression implements GameInterface {
+    private static final int MAX_SIZE_PROGRESSION = 10;
+    private String userName;
 
     public void setUserName(String name) {
         userName = name;

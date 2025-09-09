@@ -1,10 +1,18 @@
 package hexlet.code.core;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
+import hexlet.code.games.GameInterface;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.List;
 
-public class GameManager {
+public final class GameManager {
     private final Map<String, GameInterface> games = new LinkedHashMap<>();
 
     public GameManager() {
@@ -44,6 +52,5 @@ public class GameManager {
         game.setUserName(userName);
         game.startGame();
         game.play();
-
     }
 }

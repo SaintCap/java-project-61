@@ -4,7 +4,7 @@ import hexlet.code.core.GameManager;
 
 import java.util.Scanner;
 
-public class Cli {
+public final class Cli {
     private final int startGamesNumber;
     private final GameManager games;
     private String userName;
@@ -15,6 +15,9 @@ public class Cli {
         startGamesNumber = 2;
     }
 
+    /**
+     * Method shows options to the user
+     */
     public void menu() {
 
         System.out.println("Please enter the game number and press Enter.");
@@ -25,6 +28,9 @@ public class Cli {
 
     }
 
+    /**
+     * Method returns the user's selection
+     */
     public int userSelection() {
         Scanner input = new Scanner(System.in);
         int choice = input.nextInt();
@@ -35,6 +41,9 @@ public class Cli {
         return choice;
     }
 
+    /**
+     * Method handles user selection
+     */
     public void processUserSelection(int choice) {
         if (choice == 0) {
             return;
@@ -51,6 +60,9 @@ public class Cli {
 
     }
 
+    /**
+     * Method greeting with user
+     */
     private void greeting() {
         Scanner input = new Scanner(System.in);
 

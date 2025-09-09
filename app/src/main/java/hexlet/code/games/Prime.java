@@ -4,8 +4,8 @@ import hexlet.code.games.utils.GameUtils;
 
 import java.util.Random;
 
-public class Prime implements GameInterface{
-    public String userName;
+public final class Prime implements GameInterface{
+    private String userName;
 
     public void setUserName(String name) {
         userName = name;
@@ -40,9 +40,17 @@ public class Prime implements GameInterface{
     }
 
     private boolean isPrime(int num) {
-        if (num < 2) { return false; }
-        if (num == 2) { return true; }
-        if (num % 2 == 0) { return false; }
+        if (num < 2) {
+            return false;
+        }
+
+        if (num == 2) {
+            return true;
+        }
+
+        if (num % 2 == 0) {
+            return false;
+        }
 
         for (int i = 3; i <= Math.sqrt(num); i++) {
             if (num % i == 0) {

@@ -4,8 +4,8 @@ import hexlet.code.games.utils.GameUtils;
 
 import java.util.Random;
 
-public class GCD implements GameInterface {
-    public String userName;
+public final class GCD implements GameInterface {
+    private String userName;
 
     public void setUserName(String name) {
         userName = name;

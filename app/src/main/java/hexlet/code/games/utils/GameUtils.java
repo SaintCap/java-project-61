@@ -1,7 +1,7 @@
 package hexlet.code.games.utils;
 import java.util.Scanner;
 
-public class GameUtils {
+public final class GameUtils {
     public static final String PROMPT_INPUT = "Your answer: ";
     public static final String USER_CONGRATULATIONS_TEMPLATE = "Congratulations, %s!%n";
 
@@ -70,7 +70,6 @@ public class GameUtils {
             return true;
         }
     }
-
 
     public static void congratulations(String userName) {
         System.out.printf(USER_CONGRATULATIONS_TEMPLATE, userName);

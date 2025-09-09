@@ -3,8 +3,8 @@ package hexlet.code.games;
 import java.util.Random;
 import hexlet.code.games.utils.GameUtils;
 
-public class Even implements GameInterface {
-    public String userName;
+public final class Even implements GameInterface {
+    private String userName;
 
     public void setUserName(String name) {
         userName = name;

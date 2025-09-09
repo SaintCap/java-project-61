@@ -12,6 +12,7 @@ public class GameManager {
         addGame("Calc", new Calc());
         addGame("GCD", new GCD());
         addGame("Progression", new Progression());
+        addGame("Prime", new Prime());
     }
 
     public int numberOfGames() {

@@ -11,3 +11,5 @@ Example of how the game "Calc" works: https://asciinema.org/a/u7ZRUfea3fTzIvibjA
 Example of how the game "GCD" works: https://asciinema.org/a/HAyEZu3aehqqMzv67YI1qwU56
 
 Example of how the game "Progression" works: https://asciinema.org/a/fNW61xhJOuRzqUuXfo6CAt2Eh
+
+Example of how the game "Prime" works: https://asciinema.org/a/pshxuEcYMKh89rVAFFb4vE5BQ

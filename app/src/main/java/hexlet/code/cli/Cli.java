@@ -16,7 +16,7 @@ public final class Cli {
     }
 
     /**
-     * Method shows options to the user
+     * Method shows options to the user.
      */
     public void menu() {
 
@@ -29,7 +29,7 @@ public final class Cli {
     }
 
     /**
-     * Method returns the user's selection
+     * Method returns the user's selection.
      */
     public int userSelection() {
         Scanner input = new Scanner(System.in);
@@ -42,7 +42,7 @@ public final class Cli {
     }
 
     /**
-     * Method handles user selection
+     * Method handles user selection.
      */
     public void processUserSelection(int choice) {
         if (choice == 0) {
@@ -61,7 +61,7 @@ public final class Cli {
     }
 
     /**
-     * Method greeting with user
+     * Method greeting with user.
      */
     private void greeting() {
         Scanner input = new Scanner(System.in);

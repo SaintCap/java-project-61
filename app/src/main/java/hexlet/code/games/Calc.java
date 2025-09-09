@@ -43,7 +43,7 @@ public final class Calc implements GameInterface {
     }
 
     private char[] allOperations() {
-        return new char[]{'+','-','*'};
+        return new char[]{'+', '-', '*'};
     }
 
     private char randomOperation(char[] operations, Random random) {

@@ -4,7 +4,8 @@ import hexlet.code.games.utils.GameUtils;
 
 import java.util.Random;
 
-public final class Prime implements GameInterface{
+public final class Prime implements GameInterface {
+    private static final int DIVISOR = 3;
     private String userName;
 
     public void setUserName(String name) {
@@ -21,7 +22,7 @@ public final class Prime implements GameInterface{
         int correctAnswers = 0;
         while (correctAnswers < MAX_CORRECT_ANSWERS) {
             int randomNumber = random.nextInt(MAX_RANDOM_VALUE);
-            String prime = isPrime(randomNumber) ? "yes" : "no" ;
+            String prime = isPrime(randomNumber) ? "yes" : "no";
 
             GameUtils.askQuestion(randomNumber);
             GameUtils.prepareToAnswer();
@@ -52,7 +53,7 @@ public final class Prime implements GameInterface{
             return false;
         }
 
-        for (int i = 3; i <= Math.sqrt(num); i++) {
+        for (int i = DIVISOR; i <= Math.sqrt(num); i++) {
             if (num % i == 0) {
                 return false;
             }

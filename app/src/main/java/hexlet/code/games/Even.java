@@ -20,7 +20,7 @@ public final class Even implements GameInterface {
         int correctAnswers = 0;
         while (correctAnswers < MAX_CORRECT_ANSWERS) {
             int randomNumber = random.nextInt(MAX_RANDOM_VALUE);
-            String even = isEven(randomNumber) ? "yes" : "no" ;
+            String even = isEven(randomNumber) ? "yes" : "no";
 
             GameUtils.askQuestion(randomNumber);
             GameUtils.prepareToAnswer();

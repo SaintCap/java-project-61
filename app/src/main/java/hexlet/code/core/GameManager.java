@@ -31,7 +31,7 @@ public final class GameManager {
         games.put(name, game);
     }
 
-    private GameInterface getGame (int indexOfGame) {
+    private GameInterface getGame(int indexOfGame) {
         List<String> gameNamesList = new ArrayList<>(games.keySet());
         String key = gameNamesList.get(indexOfGame);
 

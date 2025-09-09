@@ -1,7 +1,8 @@
 package hexlet.code.games;
 
+import hexlet.code.games.utils.GameUtils;
+
 import java.util.Random;
-import java.util.Scanner;
 
 public class Calc implements GameInterface {
     public String userName;
@@ -18,7 +19,6 @@ public class Calc implements GameInterface {
         int correctAnswers = 0;
         char[] operations = allOperations();
         Random random = new Random();
-        Scanner input = new Scanner(System.in);
 
         while (correctAnswers < MAX_CORRECT_ANSWERS) {
             char oper = randomOperation(operations, random);
@@ -26,18 +26,12 @@ public class Calc implements GameInterface {
             int num2 = random.nextInt(MAX_RANDOM_VALUE);
             int result = resultOfOperation(oper, num1, num2);
 
-            System.out.printf("Question: %d %c %d%n", num1, oper, num2);
-            System.out.println("Your answer:");
+            GameUtils.askQuestion(num1, num2, oper);
+            GameUtils.prepareToAnswer();
 
-            int answer = input.nextInt();
+            int answer = GameUtils.readInt();
 
-            if (answer == result) {
-                System.out.println("Correct!");
-                correctAnswers++;
-            } else {
-                System.out.printf("'%d' is wrong answer ;(. Correct answer was '%d'.%n", answer, result);
-                System.out.printf("Let's try again, %s!%n", userName);
-            }
+            correctAnswers = GameUtils.checkAnswer(answer, result, userName, correctAnswers);
         }
 
     }

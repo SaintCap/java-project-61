@@ -1,7 +1,8 @@
 package hexlet.code.games;
 
+import hexlet.code.games.utils.GameUtils;
+
 import java.util.Random;
-import java.util.Scanner;
 
 public class Progression implements GameInterface {
     public static final int MAX_SIZE_PROGRESSION = 10;
@@ -18,7 +19,6 @@ public class Progression implements GameInterface {
     public void play() {
         int correctAnswers = 0;
         Random random = new Random();
-        Scanner input = new Scanner(System.in);
 
         while (correctAnswers < MAX_CORRECT_ANSWERS) {
 
@@ -26,19 +26,13 @@ public class Progression implements GameInterface {
             int randomMissing = random.nextInt(MAX_SIZE_PROGRESSION);
             int missValue = progression[randomMissing];
 
-            String question = progressionAsStringWithMissVal(progression, randomMissing);
-            System.out.printf("Question: %s%n", question);
-            System.out.println("Your answer:");
+            String progressionStr = progressionAsStringWithMissVal(progression, randomMissing);
+            GameUtils.askQuestion(progressionStr);
+            GameUtils.prepareToAnswer();
 
-            int answer = input.nextInt();
+            int answer = GameUtils.readInt();
 
-            if (answer == missValue) {
-                System.out.println("Correct!");
-                correctAnswers++;
-            } else {
-                System.out.printf("'%d' is wrong answer ;(. Correct answer was '%d'.%n", answer, missValue);
-                System.out.printf("Let's try again, %s!%n", userName);
-            }
+            correctAnswers = GameUtils.checkAnswer(answer, missValue, userName, correctAnswers);
         }
     }
 

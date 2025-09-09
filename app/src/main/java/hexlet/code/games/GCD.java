@@ -1,7 +1,8 @@
 package hexlet.code.games;
 
+import hexlet.code.games.utils.GameUtils;
+
 import java.util.Random;
-import java.util.Scanner;
 
 public class GCD implements GameInterface {
     public String userName;
@@ -17,8 +18,6 @@ public class GCD implements GameInterface {
     public void play() {
         int correctAnswers = 0;
         Random random = new Random();
-        Scanner input = new Scanner(System.in);
-
 
         while (correctAnswers < MAX_CORRECT_ANSWERS) {
             int num1 = random.nextInt(MAX_RANDOM_VALUE);
@@ -26,18 +25,12 @@ public class GCD implements GameInterface {
 
             int divisor = greatestDivisor(num1, num2);
 
-            System.out.printf("Question: %d %d%n", num1, num2);
-            System.out.println("Your answer:");
+            GameUtils.askQuestion(num1, num2);
+            GameUtils.prepareToAnswer();
 
-            int answer = input.nextInt();
+            int answer = GameUtils.readInt();
 
-            if (answer == divisor) {
-                System.out.println("Correct!");
-                correctAnswers++;
-            } else {
-                System.out.printf("'%d' is wrong answer ;(. Correct answer was '%d'.%n", answer, divisor);
-                System.out.printf("Let's try again, %s!%n", userName);
-            }
+            correctAnswers = GameUtils.checkAnswer(answer, divisor, userName, correctAnswers);
         }
     }
 

@@ -11,6 +11,7 @@ public class GameManager {
         addGame("Even", new Even());
         addGame("Calc", new Calc());
         addGame("GCD", new GCD());
+        addGame("Progression", new Progression());
     }
 
     public int numberOfGames() {
@@ -38,8 +39,11 @@ public class GameManager {
 
     public void playGame(String userName, int indexOfGame) {
         GameInterface game = getGame(indexOfGame);
+
         game.setUserName(userName);
         game.startGame();
         game.play();
+
+        System.out.printf("Congratulations, %s!%n", userName);
     }
 }

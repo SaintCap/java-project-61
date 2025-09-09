@@ -36,8 +36,6 @@ public class Even implements GameInterface {
                 System.out.printf("Let's try again, %s%n!", userName);
             }
         }
-
-        System.out.printf("Congratulations, %s!%n", userName);
     }
 
     private boolean isEven(int num) {

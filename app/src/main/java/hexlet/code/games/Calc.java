@@ -40,8 +40,6 @@ public class Calc implements GameInterface {
             }
         }
 
-        System.out.printf("Congratulations, %s!%n", userName);
-
     }
 
     private char[] allOperations() {

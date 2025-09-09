@@ -72,6 +72,6 @@ public class Progression implements GameInterface {
             }
         }
 
-        return sb.toString();
+        return sb.toString().trim();
     }
 }

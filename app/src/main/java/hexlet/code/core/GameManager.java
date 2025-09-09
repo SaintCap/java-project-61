@@ -45,6 +45,5 @@ public class GameManager {
         game.startGame();
         game.play();
 
-        System.out.printf("Congratulations, %s!%n", userName);
     }
 }

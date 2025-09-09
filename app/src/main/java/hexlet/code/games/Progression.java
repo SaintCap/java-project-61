@@ -32,7 +32,14 @@ public class Progression implements GameInterface {
 
             int answer = GameUtils.readInt();
 
-            correctAnswers = GameUtils.checkAnswer(answer, missValue, userName, correctAnswers);
+            if (GameUtils.isNotRightAnswer(answer, missValue, userName)) {
+                break;
+            }
+            correctAnswers++;
+        }
+
+        if (correctAnswers == MAX_CORRECT_ANSWERS) {
+            GameUtils.congratulations(userName);
         }
     }
 

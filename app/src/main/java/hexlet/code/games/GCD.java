@@ -30,7 +30,14 @@ public class GCD implements GameInterface {
 
             int answer = GameUtils.readInt();
 
-            correctAnswers = GameUtils.checkAnswer(answer, divisor, userName, correctAnswers);
+            if (GameUtils.isNotRightAnswer(answer, divisor, userName)) {
+                break;
+            }
+            correctAnswers++;
+        }
+
+        if (correctAnswers == MAX_CORRECT_ANSWERS) {
+            GameUtils.congratulations(userName);
         }
     }
 

@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class GameUtils {
     public static final String PROMPT_INPUT = "Your answer: ";
+    public static final String USER_CONGRATULATIONS_TEMPLATE = "Congratulations, %s!%n";
 
     public static void askQuestion(int num) {
         System.out.printf("Question: %d%n", num);
@@ -41,34 +42,38 @@ public class GameUtils {
         }
     }
 
-    public static int checkAnswer(String userAnswer, String correctAnswer,
-                                        String userName, int currentCount) {
+    public static boolean isNotRightAnswer(String userAnswer, String correctAnswer,
+                                        String userName) {
 
         if (userAnswer.equals(correctAnswer)) {
             System.out.println("Correct!");
-            return currentCount + 1;
+            return false;
         } else {
             System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'%n",
                     userAnswer, correctAnswer);
             System.out.printf("Let's try again, %s!%n", userName);
-            return currentCount;
+            return true;
         }
 
     }
 
-    public static int checkAnswer(int userAnswer, int correctAnswer,
-                                  String userName, int currentCount) {
+    public static boolean isNotRightAnswer(int userAnswer, int correctAnswer,
+                                  String userName) {
 
         if (userAnswer == correctAnswer) {
             System.out.println("Correct!");
-            return currentCount + 1;
+            return false;
         } else {
-            System.out.printf("'%d' is wrong answer ;(. Correct answer was '%d'%n",
+            System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'%n",
                     userAnswer, correctAnswer);
             System.out.printf("Let's try again, %s!%n", userName);
-            return currentCount;
+            return true;
         }
+    }
 
+
+    public static void congratulations(String userName) {
+        System.out.printf(USER_CONGRATULATIONS_TEMPLATE, userName);
     }
 
 }

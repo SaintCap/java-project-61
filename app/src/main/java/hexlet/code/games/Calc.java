@@ -31,9 +31,15 @@ public class Calc implements GameInterface {
 
             int answer = GameUtils.readInt();
 
-            correctAnswers = GameUtils.checkAnswer(answer, result, userName, correctAnswers);
+            if (GameUtils.isNotRightAnswer(answer, result, userName)) {
+                break;
+            }
+            correctAnswers++;
         }
 
+        if (correctAnswers == MAX_CORRECT_ANSWERS) {
+            GameUtils.congratulations(userName);
+        }
     }
 
     private char[] allOperations() {

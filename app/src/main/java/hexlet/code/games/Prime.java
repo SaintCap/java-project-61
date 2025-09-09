@@ -28,7 +28,14 @@ public class Prime implements GameInterface{
 
             String answer = GameUtils.readString();
 
-            correctAnswers = GameUtils.checkAnswer(answer, prime, userName, correctAnswers);
+            if (GameUtils.isNotRightAnswer(answer, prime, userName)) {
+                break;
+            }
+            correctAnswers++;
+        }
+
+        if (correctAnswers == MAX_CORRECT_ANSWERS) {
+            GameUtils.congratulations(userName);
         }
     }
 

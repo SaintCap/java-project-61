@@ -27,7 +27,14 @@ public class Even implements GameInterface {
 
             String answer = GameUtils.readString();
 
-            correctAnswers = GameUtils.checkAnswer(answer, even, userName, correctAnswers);
+            if (GameUtils.isNotRightAnswer(answer, even, userName)) {
+                break;
+            }
+            correctAnswers++;
+        }
+
+        if (correctAnswers == MAX_CORRECT_ANSWERS) {
+            GameUtils.congratulations(userName);
         }
     }
 

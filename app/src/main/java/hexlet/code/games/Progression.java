@@ -3,10 +3,10 @@ package hexlet.code.games;
 import java.util.Random;
 
 public final class Progression implements GameInterface {
-    public static final String GAME_RULES = "What number is missing in the progression?";
+    private static final String GAME_RULES = "What number is missing in the progression?";
     private static final int MAX_SIZE_PROGRESSION = 10;
-    public String exercise;
-    public String correctAnswer;
+    private String exercise;
+    private String correctAnswer;
 
     public void startGame() {
         System.out.println(GAME_RULES);

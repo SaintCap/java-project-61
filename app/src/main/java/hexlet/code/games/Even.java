@@ -3,9 +3,9 @@ package hexlet.code.games;
 import java.util.Random;
 
 public final class Even implements GameInterface {
-    public static final String GAME_RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    public String exercise;
-    public String correctAnswer;
+    private static final String GAME_RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private String exercise;
+    private String correctAnswer;
 
     public void startGame() {
         System.out.println(GAME_RULES);

@@ -88,6 +88,8 @@ public final class Cli {
     /**
      * Method shows names of games with counting
      * which starts from the starting value START_GAMES_NUMBER.
+     *
+     * @param namesOfGames names of games which should be shown
      */
     private void showAllGames(String[] namesOfGames) {
         int count = START_GAMES_NUMBER;

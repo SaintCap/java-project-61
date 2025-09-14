@@ -3,10 +3,10 @@ package hexlet.code.games;
 import java.util.Random;
 
 public final class Prime implements GameInterface {
-    public static final String GAME_RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final String GAME_RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int DIVISOR = 3;
-    public String exercise;
-    public String correctAnswer;
+    private String exercise;
+    private String correctAnswer;
 
     public void startGame() {
         System.out.println(GAME_RULES);

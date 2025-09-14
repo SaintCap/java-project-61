@@ -3,9 +3,9 @@ package hexlet.code.games;
 import java.util.Random;
 
 public final class GCD implements GameInterface {
-    public static final String GAME_RULES = "Find the greatest common divisor of given numbers.";
-    public String exercise;
-    public String correctAnswer;
+    private static final String GAME_RULES = "Find the greatest common divisor of given numbers.";
+    private String exercise;
+    private String correctAnswer;
 
     public void startGame() {
         System.out.println(GAME_RULES);

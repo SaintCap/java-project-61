@@ -1,5 +1,4 @@
 plugins {
-    id("java")
     application
     id("com.github.ben-manes.versions") version "0.51.0"
     id("org.sonarqube") version "6.3.1.5724"

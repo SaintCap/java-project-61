@@ -38,19 +38,13 @@ public final class GameManager {
         return games.get(key);
     }
 
-    public void showAllGames(int startNumber) {
-        List<String> gameNamesList = new ArrayList<>(games.keySet());
-        for (int i = 0; i < gameNamesList.size(); i++) {
-            int num = startNumber + i;
-            System.out.printf("%d - %s%n", num, gameNamesList.get(i));
-        }
+    public String[] getNamesOfAllGames() {
+        return games.keySet().toArray(new String[0]);
     }
 
     public void playGame(String userName, int indexOfGame) {
         GameInterface game = getGame(indexOfGame);
-
-        game.setUserName(userName);
         game.startGame();
-        game.play();
+        game.play(userName);
     }
 }

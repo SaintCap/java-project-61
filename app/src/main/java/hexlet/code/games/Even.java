@@ -1,41 +1,28 @@
 package hexlet.code.games;
 
 import java.util.Random;
-import hexlet.code.games.utils.GameUtils;
 
 public final class Even implements GameInterface {
-    private String userName;
-
-    public void setUserName(String name) {
-        userName = name;
-    }
+    public static final String GAME_RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    public String exercise;
+    public String correctAnswer;
 
     public void startGame() {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        System.out.println(GAME_RULES);
     }
 
-    public void play() {
-        Random random = new Random();
+    public void prepareExercise(Random random) {
+        int randomNumber = random.nextInt(MAX_RANDOM_VALUE);
+        exercise = Integer.toString(randomNumber);
+        correctAnswer = isEven(randomNumber) ? "yes" : "no";
+    }
 
-        int correctAnswers = 0;
-        while (correctAnswers < MAX_CORRECT_ANSWERS) {
-            int randomNumber = random.nextInt(MAX_RANDOM_VALUE);
-            String even = isEven(randomNumber) ? "yes" : "no";
+    public String getExercise() {
+        return exercise;
+    }
 
-            GameUtils.askQuestion(randomNumber);
-            GameUtils.prepareToAnswer();
-
-            String answer = GameUtils.readString();
-
-            if (GameUtils.isNotRightAnswer(answer, even, userName)) {
-                break;
-            }
-            correctAnswers++;
-        }
-
-        if (correctAnswers == MAX_CORRECT_ANSWERS) {
-            GameUtils.congratulations(userName);
-        }
+    public String getCorrectAnswer() {
+        return correctAnswer;
     }
 
     private boolean isEven(int num) {

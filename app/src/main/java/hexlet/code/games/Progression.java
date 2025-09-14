@@ -1,46 +1,31 @@
 package hexlet.code.games;
 
-import hexlet.code.games.utils.GameUtils;
-
 import java.util.Random;
 
 public final class Progression implements GameInterface {
+    public static final String GAME_RULES = "What number is missing in the progression?";
     private static final int MAX_SIZE_PROGRESSION = 10;
-    private String userName;
-
-    public void setUserName(String name) {
-        userName = name;
-    }
+    public String exercise;
+    public String correctAnswer;
 
     public void startGame() {
-        System.out.println("What number is missing in the progression?");
+        System.out.println(GAME_RULES);
     }
 
-    public void play() {
-        int correctAnswers = 0;
-        Random random = new Random();
+    public void prepareExercise(Random random) {
+        int[] progression = randomProgression(random);
+        int randomMissing = random.nextInt(MAX_SIZE_PROGRESSION);
+        int missValue = progression[randomMissing];
+        exercise = progressionAsStringWithMissVal(progression, randomMissing);
+        correctAnswer = Integer.toString(missValue);
+    }
 
-        while (correctAnswers < MAX_CORRECT_ANSWERS) {
+    public String getExercise() {
+        return exercise;
+    }
 
-            int[] progression = randomProgression(random);
-            int randomMissing = random.nextInt(MAX_SIZE_PROGRESSION);
-            int missValue = progression[randomMissing];
-
-            String progressionStr = progressionAsStringWithMissVal(progression, randomMissing);
-            GameUtils.askQuestion(progressionStr);
-            GameUtils.prepareToAnswer();
-
-            int answer = GameUtils.readInt();
-
-            if (GameUtils.isNotRightAnswer(answer, missValue, userName)) {
-                break;
-            }
-            correctAnswers++;
-        }
-
-        if (correctAnswers == MAX_CORRECT_ANSWERS) {
-            GameUtils.congratulations(userName);
-        }
+    public String getCorrectAnswer() {
+        return correctAnswer;
     }
 
     public int[] randomProgression(Random random) {

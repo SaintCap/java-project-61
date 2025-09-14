@@ -1,54 +1,37 @@
 package hexlet.code.games;
 
-import hexlet.code.games.utils.GameUtils;
-
 import java.util.Random;
 
 public final class Calc implements GameInterface {
-    private String userName;
-
-    public void setUserName(String name) {
-        userName = name;
-    }
+    public static final String GAME_RULES = "What is the result of the expression?";
+    public static final char[] OPERATIONS = new char[]{'+', '-', '*'};
+    public String exercise;
+    public String correctAnswer;
 
     public void startGame() {
-        System.out.println("What is the result of the expression?");
+        System.out.println(GAME_RULES);
     }
 
-    public void play() {
-        int correctAnswers = 0;
-        char[] operations = allOperations();
-        Random random = new Random();
-
-        while (correctAnswers < MAX_CORRECT_ANSWERS) {
-            char oper = randomOperation(operations, random);
-            int num1 = random.nextInt(MAX_RANDOM_VALUE);
-            int num2 = random.nextInt(MAX_RANDOM_VALUE);
-            int result = resultOfOperation(oper, num1, num2);
-
-            GameUtils.askQuestion(num1, num2, oper);
-            GameUtils.prepareToAnswer();
-
-            int answer = GameUtils.readInt();
-
-            if (GameUtils.isNotRightAnswer(answer, result, userName)) {
-                break;
-            }
-            correctAnswers++;
-        }
-
-        if (correctAnswers == MAX_CORRECT_ANSWERS) {
-            GameUtils.congratulations(userName);
-        }
+    public void prepareExercise(Random random) {
+        char oper = randomOperation(random);
+        int num1 = random.nextInt(MAX_RANDOM_VALUE);
+        int num2 = random.nextInt(MAX_RANDOM_VALUE);
+        int result = resultOfOperation(oper, num1, num2);
+        exercise = String.format("%d %c %d",num1, oper, num2);
+        correctAnswer = Integer.toString(result);
     }
 
-    private char[] allOperations() {
-        return new char[]{'+', '-', '*'};
+    public String getExercise() {
+        return exercise;
     }
 
-    private char randomOperation(char[] operations, Random random) {
-        int randNum = random.nextInt(operations.length);
-        return operations[randNum];
+    public String getCorrectAnswer() {
+        return correctAnswer;
+    }
+
+    private char randomOperation(Random random) {
+        int randNum = random.nextInt(OPERATIONS.length);
+        return OPERATIONS[randNum];
     }
 
     private int resultOfOperation(char oper, int num1, int num2) throws IllegalArgumentException {

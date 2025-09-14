@@ -1,43 +1,29 @@
 package hexlet.code.games;
 
-import hexlet.code.games.utils.GameUtils;
-
 import java.util.Random;
 
 public final class Prime implements GameInterface {
+    public static final String GAME_RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int DIVISOR = 3;
-    private String userName;
-
-    public void setUserName(String name) {
-        userName = name;
-    }
+    public String exercise;
+    public String correctAnswer;
 
     public void startGame() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        System.out.println(GAME_RULES);
     }
 
-    public void play() {
-        Random random = new Random();
+    public String getExercise() {
+        return exercise;
+    }
 
-        int correctAnswers = 0;
-        while (correctAnswers < MAX_CORRECT_ANSWERS) {
-            int randomNumber = random.nextInt(MAX_RANDOM_VALUE);
-            String prime = isPrime(randomNumber) ? "yes" : "no";
+    public String getCorrectAnswer() {
+        return correctAnswer;
+    }
 
-            GameUtils.askQuestion(randomNumber);
-            GameUtils.prepareToAnswer();
-
-            String answer = GameUtils.readString();
-
-            if (GameUtils.isNotRightAnswer(answer, prime, userName)) {
-                break;
-            }
-            correctAnswers++;
-        }
-
-        if (correctAnswers == MAX_CORRECT_ANSWERS) {
-            GameUtils.congratulations(userName);
-        }
+    public void prepareExercise(Random random) {
+        int randomNumber = random.nextInt(MAX_RANDOM_VALUE);
+        exercise = Integer.toString(randomNumber);
+        correctAnswer = isPrime(randomNumber) ? "yes" : "no";
     }
 
     private boolean isPrime(int num) {

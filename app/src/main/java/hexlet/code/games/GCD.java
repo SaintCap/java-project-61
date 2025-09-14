@@ -1,44 +1,30 @@
 package hexlet.code.games;
 
-import hexlet.code.games.utils.GameUtils;
-
 import java.util.Random;
 
 public final class GCD implements GameInterface {
-    private String userName;
-
-    public void setUserName(String name) {
-        userName = name;
-    }
+    public static final String GAME_RULES = "Find the greatest common divisor of given numbers.";
+    public String exercise;
+    public String correctAnswer;
 
     public void startGame() {
-        System.out.println("Find the greatest common divisor of given numbers.");
+        System.out.println(GAME_RULES);
     }
 
-    public void play() {
-        int correctAnswers = 0;
-        Random random = new Random();
+    public void prepareExercise(Random random) {
+        int num1 = random.nextInt(MAX_RANDOM_VALUE);
+        int num2 = random.nextInt(MAX_RANDOM_VALUE);
+        int divisor = greatestDivisor(num1, num2);
+        exercise = String.format("%d %d", num1, num2);
+        correctAnswer = Integer.toString(divisor);
+    }
 
-        while (correctAnswers < MAX_CORRECT_ANSWERS) {
-            int num1 = random.nextInt(MAX_RANDOM_VALUE);
-            int num2 = random.nextInt(MAX_RANDOM_VALUE);
+    public String getExercise() {
+        return exercise;
+    }
 
-            int divisor = greatestDivisor(num1, num2);
-
-            GameUtils.askQuestion(num1, num2);
-            GameUtils.prepareToAnswer();
-
-            int answer = GameUtils.readInt();
-
-            if (GameUtils.isNotRightAnswer(answer, divisor, userName)) {
-                break;
-            }
-            correctAnswers++;
-        }
-
-        if (correctAnswers == MAX_CORRECT_ANSWERS) {
-            GameUtils.congratulations(userName);
-        }
+    public String getCorrectAnswer() {
+        return correctAnswer;
     }
 
     public int greatestDivisor(int num1, int num2) {

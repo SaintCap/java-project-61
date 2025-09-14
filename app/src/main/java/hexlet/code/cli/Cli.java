@@ -5,14 +5,13 @@ import hexlet.code.core.GameManager;
 import java.util.Scanner;
 
 public final class Cli {
-    private final int startGamesNumber;
+    private static final int START_GAMES_NUMBER = 2;
     private final GameManager games;
     private String userName;
 
     public Cli() {
         games = new GameManager();
         userName = "Unknown";
-        startGamesNumber = 2;
     }
 
     /**
@@ -20,9 +19,10 @@ public final class Cli {
      */
     public void menu() {
 
+        String[] namesOfGames = games.getNamesOfAllGames();
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
-        games.showAllGames(startGamesNumber);
+        showAllGames(namesOfGames);
         System.out.println("0 - Exit");
         System.out.println("Your choice: ");
 
@@ -39,10 +39,10 @@ public final class Cli {
         int choice;
         do {
             choice = input.nextInt();
-            if (choice < 0 || choice > (games.numberOfGames() + startGamesNumber)) {
+            if (choice < 0 || choice > (games.numberOfGames() + START_GAMES_NUMBER)) {
                 System.out.println("There is no such option! Please try again.");
             }
-        } while (choice < 0 || choice > (games.numberOfGames() + startGamesNumber));
+        } while (choice < 0 || choice > (games.numberOfGames() + START_GAMES_NUMBER));
 
         return choice;
     }
@@ -63,7 +63,7 @@ public final class Cli {
             return;
         }
 
-        int indexOfGame = choice - startGamesNumber;
+        int indexOfGame = choice - START_GAMES_NUMBER;
         games.playGame(userName, indexOfGame);
 
     }
@@ -83,5 +83,17 @@ public final class Cli {
         }
         this.userName = name;
         System.out.printf("Hello, %s!%n", name);
+    }
+
+    /**
+     * Method shows names of games with counting
+     * which starts from the starting value START_GAMES_NUMBER.
+     */
+    private void showAllGames(String[] namesOfGames) {
+        int count = START_GAMES_NUMBER;
+        for (String name : namesOfGames) {
+            System.out.printf("%d - %s%n", count, name);
+            count++;
+        }
     }
 }

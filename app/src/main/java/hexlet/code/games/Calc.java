@@ -21,7 +21,6 @@ public final class Calc implements GameInterface {
         return new Exercise(exercise, correctAnswer);
     }
 
-
     private char randomOperation(Random random) {
         int randNum = random.nextInt(OPERATIONS.length);
         return OPERATIONS[randNum];

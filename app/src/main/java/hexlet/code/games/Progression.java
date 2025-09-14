@@ -21,7 +21,7 @@ public final class Progression implements GameInterface {
         return new Exercise(exercise, correctAnswer);
     }
 
-    public int[] randomProgression(Random random) {
+    private int[] randomProgression(Random random) {
 
         int[] progression = new int[MAX_SIZE_PROGRESSION];
         int startProgression = random.nextInt(MAX_RANDOM_VALUE);

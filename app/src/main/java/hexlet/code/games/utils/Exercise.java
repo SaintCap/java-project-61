@@ -1,3 +1,3 @@
 package hexlet.code.games.utils;
 
-public record Exercise(String exercise, String correctAnswer) {}
+public record Exercise(String exercise, String correctAnswer) { }

@@ -1,29 +1,22 @@
 package hexlet.code.games;
 
+import hexlet.code.games.utils.Exercise;
+
 import java.util.Random;
 
 public final class Prime implements GameInterface {
     private static final String GAME_RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int DIVISOR = 3;
-    private String exercise;
-    private String correctAnswer;
 
-    public void startGame() {
-        System.out.println(GAME_RULES);
+    public String getRules() {
+        return GAME_RULES;
     }
 
-    public String getExercise() {
-        return exercise;
-    }
-
-    public String getCorrectAnswer() {
-        return correctAnswer;
-    }
-
-    public void prepareExercise(Random random) {
+    public Exercise createExercise(Random random) {
         int randomNumber = random.nextInt(MAX_RANDOM_VALUE);
-        exercise = Integer.toString(randomNumber);
-        correctAnswer = isPrime(randomNumber) ? "yes" : "no";
+        String exercise = Integer.toString(randomNumber);
+        String correctAnswer = isPrime(randomNumber) ? "yes" : "no";
+        return new Exercise(exercise, correctAnswer);
     }
 
     private boolean isPrime(int num) {

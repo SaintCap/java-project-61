@@ -1,33 +1,26 @@
 package hexlet.code.games;
 
 import java.util.Random;
+import hexlet.code.games.utils.Exercise;
 
 public final class Calc implements GameInterface {
     private static final String GAME_RULES = "What is the result of the expression?";
     private static final char[] OPERATIONS = new char[]{'+', '-', '*'};
-    private String exercise;
-    private String correctAnswer;
 
-    public void startGame() {
-        System.out.println(GAME_RULES);
+    public String getRules() {
+        return GAME_RULES;
     }
 
-    public void prepareExercise(Random random) {
+    public Exercise createExercise(Random random) {
         char oper = randomOperation(random);
         int num1 = random.nextInt(MAX_RANDOM_VALUE);
         int num2 = random.nextInt(MAX_RANDOM_VALUE);
         int result = resultOfOperation(oper, num1, num2);
-        exercise = String.format("%d %c %d", num1, oper, num2);
-        correctAnswer = Integer.toString(result);
+        String exercise = String.format("%d %c %d", num1, oper, num2);
+        String correctAnswer = Integer.toString(result);
+        return new Exercise(exercise, correctAnswer);
     }
 
-    public String getExercise() {
-        return exercise;
-    }
-
-    public String getCorrectAnswer() {
-        return correctAnswer;
-    }
 
     private char randomOperation(Random random) {
         int randNum = random.nextInt(OPERATIONS.length);

@@ -1,31 +1,24 @@
 package hexlet.code.games;
 
+import hexlet.code.games.utils.Exercise;
+
 import java.util.Random;
 
 public final class Progression implements GameInterface {
     private static final String GAME_RULES = "What number is missing in the progression?";
     private static final int MAX_SIZE_PROGRESSION = 10;
-    private String exercise;
-    private String correctAnswer;
 
-    public void startGame() {
-        System.out.println(GAME_RULES);
+    public String getRules() {
+        return GAME_RULES;
     }
 
-    public void prepareExercise(Random random) {
+    public Exercise createExercise(Random random) {
         int[] progression = randomProgression(random);
         int randomMissing = random.nextInt(MAX_SIZE_PROGRESSION);
         int missValue = progression[randomMissing];
-        exercise = progressionAsStringWithMissVal(progression, randomMissing);
-        correctAnswer = Integer.toString(missValue);
-    }
-
-    public String getExercise() {
-        return exercise;
-    }
-
-    public String getCorrectAnswer() {
-        return correctAnswer;
+        String exercise = progressionAsStringWithMissVal(progression, randomMissing);
+        String correctAnswer = Integer.toString(missValue);
+        return new Exercise(exercise, correctAnswer);
     }
 
     public int[] randomProgression(Random random) {

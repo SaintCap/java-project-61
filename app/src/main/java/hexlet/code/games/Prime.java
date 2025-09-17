@@ -7,6 +7,11 @@ import java.util.Random;
 public final class Prime implements GameInterface {
     private static final String GAME_RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int DIVISOR = 3;
+    private static final String GAME_NAME  = "Prime";
+
+    public String getName() {
+        return GAME_NAME;
+    }
 
     public String getRules() {
         return GAME_RULES;

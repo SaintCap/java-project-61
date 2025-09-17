@@ -6,6 +6,11 @@ import java.util.Random;
 
 public final class Even implements GameInterface {
     private static final String GAME_RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final String GAME_NAME  = "Even";
+
+    public String getName() {
+        return GAME_NAME;
+    }
 
     public String getRules() {
         return GAME_RULES;

@@ -8,43 +8,37 @@ import hexlet.code.games.Prime;
 import hexlet.code.games.GameInterface;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.List;
 
 public final class GameManager {
-    private final Map<String, GameInterface> games = new LinkedHashMap<>();
+    private final List<GameInterface> games = new ArrayList<>();
 
     public GameManager() {
-        addGame("Even", new Even());
-        addGame("Calc", new Calc());
-        addGame("GCD", new GCD());
-        addGame("Progression", new Progression());
-        addGame("Prime", new Prime());
+        addGame(new Even());
+        addGame(new Calc());
+        addGame(new GCD());
+        addGame(new Progression());
+        addGame(new Prime());
     }
 
     public int numberOfGames() {
         return games.size();
     }
 
-    private void addGame(String name, GameInterface game) {
-        games.put(name, game);
+    private void addGame(GameInterface game) {
+        games.add(game);
     }
 
     private GameInterface getGame(int indexOfGame) {
-        List<String> gameNamesList = new ArrayList<>(games.keySet());
-        String key = gameNamesList.get(indexOfGame);
-
-        return games.get(key);
+        return games.get(indexOfGame);
     }
 
-    public String[] getNamesOfAllGames() {
-        return games.keySet().toArray(new String[0]);
+    public List<GameInterface> getGames() {
+        return games;
     }
 
     public void playGame(String userName, int indexOfGame) {
         GameInterface game = getGame(indexOfGame);
-        game.startGame();
         game.play(userName);
     }
 }

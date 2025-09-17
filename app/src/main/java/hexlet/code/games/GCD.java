@@ -6,6 +6,11 @@ import java.util.Random;
 
 public final class GCD implements GameInterface {
     private static final String GAME_RULES = "Find the greatest common divisor of given numbers.";
+    private static final String GAME_NAME  = "GCD";
+
+    public String getName() {
+        return GAME_NAME;
+    }
 
     public String getRules() {
         return GAME_RULES;

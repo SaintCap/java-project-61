@@ -1,7 +1,9 @@
 package hexlet.code.cli;
 
 import hexlet.code.core.GameManager;
+import hexlet.code.games.GameInterface;
 
+import java.util.List;
 import java.util.Scanner;
 
 public final class Cli {
@@ -19,10 +21,9 @@ public final class Cli {
      */
     public void menu() {
 
-        String[] namesOfGames = games.getNamesOfAllGames();
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
-        showAllGames(namesOfGames);
+        showAllGames();
         System.out.println("0 - Exit");
         System.out.println("Your choice: ");
 
@@ -88,13 +89,12 @@ public final class Cli {
     /**
      * Method shows names of games with counting
      * which starts from the starting value START_GAMES_NUMBER.
-     *
-     * @param namesOfGames names of games which should be shown
      */
-    private void showAllGames(String[] namesOfGames) {
+    private void showAllGames() {
         int count = START_GAMES_NUMBER;
-        for (String name : namesOfGames) {
-            System.out.printf("%d - %s%n", count, name);
+        List<GameInterface> listOfGames = games.getGames();
+        for (GameInterface game : listOfGames) {
+            System.out.printf("%d - %s%n", count, game.getName());
             count++;
         }
     }

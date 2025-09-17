@@ -6,6 +6,11 @@ import hexlet.code.games.utils.Exercise;
 public final class Calc implements GameInterface {
     private static final String GAME_RULES = "What is the result of the expression?";
     private static final char[] OPERATIONS = new char[]{'+', '-', '*'};
+    private static final String GAME_NAME  = "Calc";
+
+    public String getName() {
+        return GAME_NAME;
+    }
 
     public String getRules() {
         return GAME_RULES;

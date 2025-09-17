@@ -11,14 +11,13 @@ public interface GameInterface {
     String PROMPT_INPUT = "Your answer: ";
     String USER_CONGRATULATIONS_TEMPLATE = "Congratulations, %s!%n";
 
+    String getName();
     String getRules();
     Exercise createExercise(Random random);
-    default void startGame() {
+    default void play(String userName) {
         String rules = getRules();
         System.out.println(rules);
-    }
 
-    default void play(String userName) {
         Random random = new Random();
 
         int correctAnswers = 0;
